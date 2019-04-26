@@ -6,7 +6,9 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.testng.annotations.BeforeClass;
 
 
-@CucumberOptions(features = "src/test/resources/features", glue = "steps")
+@CucumberOptions(features = "src/test/resources/features/",
+        glue = {"steps"},
+        tags = "@smoke")
 public class AddToCartTestRunner extends AbstractTestNGCucumberTests {
 
     @BeforeClass
