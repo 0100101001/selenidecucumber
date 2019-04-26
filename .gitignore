@@ -1,0 +1,10 @@
+*.iml
+.idea/
+target/
+*.zip
+.logs/
+bin/
+obj/
+.vs/
+packages/
+test-output/
