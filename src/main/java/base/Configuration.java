@@ -46,20 +46,4 @@ public interface Configuration extends Config {
     @DefaultValue("false")
     @Key("selenide.savePageSource")
     boolean selenideSavePageSource();
-
-    @DefaultValue("10000")
-    @Key("selenide.fileDownloadTimeout")
-    long selenideFileDownloadTimeout();
-
-    @DefaultValue("false")
-    @Key("project.debug")
-    boolean projectDebug();
-
-    @DefaultValue("./data")
-    @Key("project.dataDirectory")
-    String projectDataDirectory();
-
-    @DefaultValue("small-ads.json")
-    @Key("project.dataFile")
-    String projectDataFile();
 }

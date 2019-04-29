@@ -9,6 +9,8 @@ import pageobjects.pages.ItemCardPage;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class ItemCardPageSteps {
 
     public static List<String> addedProductList = new ArrayList<>();
@@ -23,21 +25,21 @@ public class ItemCardPageSteps {
         ItemCardPage itemCardPage = new ItemCardPage();
 
         itemCardPage.addToCartButton.click();
+        String titleItem = itemCardPage.productTitle.getText().replaceAll("\n", "").trim();
         // Запомним добавленный товар
-        addedProductList.add(itemCardPage.productTitle.getText().replaceAll("\n", "").trim());
+        addedProductList.add(titleItem);
+        assertThat(addedProductList).as("Товар не добавлен! \n" + addedProductList).contains(titleItem);
     }
 
     @Когда("^появится всплывающий блок$")
     public void checkPopupBlock() {
         ItemCardPage itemCardPage = new ItemCardPage();
-
         itemCardPage.popupBlock.shouldBe(Condition.visible);
     }
 
     @Тогда("^закрыть всплывающий блок$")
     public void closePopupBlock() {
         ItemCardPage itemCardPage = new ItemCardPage();
-
         itemCardPage.btnClosePopup.click();
     }
 }

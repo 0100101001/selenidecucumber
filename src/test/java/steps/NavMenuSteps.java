@@ -21,7 +21,8 @@ public class NavMenuSteps {
     @То("^раскрыто меню (.+)$")
     public void checkOpenSectionMenu(String nameSection) {
         NavMenu navMenu = new NavMenu();
-        assertThat(navMenu.categoriesList.findBy(text(nameSection)).getAttribute("class")).contains("active");
+        assertThat(navMenu.categoriesList.findBy(text(nameSection)).shouldBe(visible)
+                .getAttribute("class")).contains("active");
     }
 
     @И("^нажать на подраздел (.+)$")

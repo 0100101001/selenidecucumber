@@ -23,7 +23,6 @@ public class Context {
         if (context == null) {
             context = new Context();
         }
-
         return context;
     }
 

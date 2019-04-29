@@ -4,14 +4,12 @@ import cucumber.api.java.ru.Ктомуже;
 import cucumber.api.java.ru.Тогда;
 import pageobjects.pages.CartPage;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.text;
+import static org.assertj.core.api.Assertions.assertThat;
 import static steps.ItemCardPageSteps.addedProductList;
 
 public class CartPageSteps {
-
-    public static List<String> listOfItemsInCart = new ArrayList<>();
 
     @Тогда("^открыта корзина$")
     public void checkOpenCartPage() {
@@ -21,12 +19,10 @@ public class CartPageSteps {
     @Ктомуже("^в корзине отображаются добавленные товары$")
     public void addedCheckingOfGoods() {
         CartPage cartPage = new CartPage();
-        listOfItemsInCart.add(String.valueOf(cartPage.itemTitleInCartList));
-        //TODO не готово
+        assertThat(addedProductList).as("Список добавленных товаров пуст! \n" + addedProductList).isNotNull();
 
-//        addedProductList.containsAll(listOfItemsInCart);
-        System.out.println(listOfItemsInCart);
-        System.out.println(addedProductList);
-        System.out.println(listOfItemsInCart.containsAll(addedProductList));
+        for (String product : addedProductList) {
+            cartPage.itemTitleInCartList.findBy(text(product)).should(exist);
+        }
     }
 }
