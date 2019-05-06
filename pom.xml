@@ -13,8 +13,8 @@
         <aspectj.version>1.8.5</aspectj.version>
         <driver>chrome</driver>
         <surefire.version>2.22.1</surefire.version>
-        <cucumber-testng.version>1.2.5</cucumber-testng.version>
-        <cucumber-java.version>1.2.5</cucumber-java.version>
+        <cucumber-testng.version>4.3.0</cucumber-testng.version>
+        <cucumber-java.version>4.3.0</cucumber-java.version>
         <selenide.version>5.1.0</selenide.version>
         <owner.version>1.0.10</owner.version>
         <slf4j.version>1.8.0-beta4</slf4j.version>
@@ -32,14 +32,14 @@
 
         <!--CucumberTestNG-->
         <dependency>
-            <groupId>info.cukes</groupId>
+            <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
             <version>${cucumber-testng.version}</version>
         </dependency>
 
         <!--CucumberJava-->
         <dependency>
-            <groupId>info.cukes</groupId>
+            <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>${cucumber-java.version}</version>
         </dependency>

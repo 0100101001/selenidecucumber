@@ -12,7 +12,7 @@ public class PlpPageSteps {
         new Plp();
     }
 
-    @Пусть("^нажать на заголовок (.+) товара в списке$")
+    @Пусть("^нажать на заголовок '(.+)' товара в списке$")
     public void clickProductBySerialNumber(int serialNumber) {
         Plp plp = new Plp();
         plp.productTitleList.get(serialNumber).click();

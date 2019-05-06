@@ -15,6 +15,10 @@ public interface Configuration extends Config {
     @Key("selenide.browser")
     String selenideBrowser();
 
+    @DefaultValue("74.0")
+    @Key("selenide.browser.version")
+    String selenidebrowserVersion();
+
     @DefaultValue("true")
     @Key("selenide.headless")
     boolean selenideHeadless();

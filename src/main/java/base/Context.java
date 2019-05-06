@@ -1,5 +1,6 @@
 package base;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.aeonbits.owner.ConfigFactory;
 
 
@@ -33,6 +34,9 @@ public class Context {
 
         // Браузер
         com.codeborne.selenide.Configuration.browser = configuration.selenideBrowser();
+
+        // Версия браузера
+        com.codeborne.selenide.Configuration.browserVersion = "74.0.3729.108";//configuration.selenidebrowserVersion();
 
         // Режим запуска браузера (автономный режим)
         com.codeborne.selenide.Configuration.headless = configuration.selenideHeadless();

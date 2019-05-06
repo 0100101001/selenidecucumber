@@ -2,6 +2,7 @@ package steps;
 
 import com.codeborne.selenide.Condition;
 import cucumber.api.java.ru.Дано;
+import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
 import pageobjects.pages.ItemCardPage;
@@ -41,5 +42,12 @@ public class ItemCardPageSteps {
     public void closePopupBlock() {
         ItemCardPage itemCardPage = new ItemCardPage();
         itemCardPage.btnClosePopup.click();
+    }
+
+    @Если("добавить товар в корзину")
+    public void addItemToCart() {
+        addToCartProduct();
+        checkPopupBlock();
+        closePopupBlock();
     }
 }
