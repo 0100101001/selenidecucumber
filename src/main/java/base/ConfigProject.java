@@ -5,7 +5,7 @@ import org.aeonbits.owner.Config;
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({"file:src/main/java/config/project.properties"})
 
-public interface Configuration extends Config {
+public interface ConfigProject extends Config {
 
     @DefaultValue("https://www.mvideo.ru")
     @Key("site.url")
@@ -14,10 +14,6 @@ public interface Configuration extends Config {
     @DefaultValue("Chrome")
     @Key("selenide.browser")
     String selenideBrowser();
-
-    @DefaultValue("74.0")
-    @Key("selenide.browser.version")
-    String selenidebrowserVersion();
 
     @DefaultValue("true")
     @Key("selenide.headless")

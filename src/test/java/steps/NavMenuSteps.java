@@ -1,15 +1,13 @@
 package steps;
 
-import com.codeborne.selenide.Selenide;
 import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.И;
 import cucumber.api.java.ru.То;
-import org.openqa.selenium.interactions.Actions;
 import pageobjects.conponents.NavMenu;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static org.assertj.core.api.Assertions.assertThat;
 import static util.ActionsOnElements.removeEvilBanner;
 

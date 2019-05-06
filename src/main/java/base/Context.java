@@ -1,5 +1,6 @@
 package base;
 
+import com.codeborne.selenide.Configuration;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.aeonbits.owner.ConfigFactory;
 
@@ -8,12 +9,12 @@ public class Context {
 
     private static Context context = null;
 
-    private Configuration configuration = null;
+    private ConfigProject configProject = null;
 
     private String sessionIdentifier = null;
 
     protected Context() {
-        configuration = ConfigFactory.create(Configuration.class, System.getProperties());
+        configProject = ConfigFactory.create(ConfigProject.class, System.getProperties());
     }
 
     public static void initialize() {
@@ -30,39 +31,41 @@ public class Context {
     protected void initializeSelenide() {
 
         // URL
-        com.codeborne.selenide.Configuration.baseUrl = configuration.siteUrl();
+        Configuration.baseUrl = configProject.siteUrl();
 
         // Браузер
-        com.codeborne.selenide.Configuration.browser = configuration.selenideBrowser();
+        Configuration.browser = configProject.selenideBrowser();
 
-        // Версия браузера
-        com.codeborne.selenide.Configuration.browserVersion = "74.0.3729.108";//configuration.selenidebrowserVersion();
+        // Установка нужной версии браузера
+        installingBrowser(configProject.selenideBrowser());
 
         // Режим запуска браузера (автономный режим)
-        com.codeborne.selenide.Configuration.headless = configuration.selenideHeadless();
+        Configuration.headless = configProject.selenideHeadless();
 
         // Оставлять ли открытым окно браузера после выполнения тестов
-        com.codeborne.selenide.Configuration.holdBrowserOpen = configuration.selenideHoldBrowserOpen();
+        Configuration.holdBrowserOpen = configProject.selenideHoldBrowserOpen();
 
         // Окно браузера максимально развернуто при запуске.
-        com.codeborne.selenide.Configuration.startMaximized = configuration.selenideStartMaximized();
+        Configuration.startMaximized = configProject.selenideStartMaximized();
 
         // Делать ли скриншот при неудачных тестах
-        com.codeborne.selenide.Configuration.screenshots = configuration.selenideRecordScreenshots();
+        Configuration.screenshots = configProject.selenideRecordScreenshots();
 
         // Расположение каталога, в котором будут сохранены скриншоты/отчеты из Selenide
-        com.codeborne.selenide.Configuration.reportsFolder = configuration.selenideReportsFolder() + "/" + sessionIdentifier;
+        Configuration.reportsFolder = configProject.selenideReportsFolder() + "/" + sessionIdentifier;
 
-        // Обработка страницы после запуска события load
-        // - normal - > возврат после события загрузки
-        // - eager - > возврат после DOMContentLoaded
-        // - none - > немедленно вернуться
-        com.codeborne.selenide.Configuration.pageLoadStrategy = configuration.selenidePageLoadStrategy();
+        Configuration.pageLoadStrategy = configProject.selenidePageLoadStrategy();
 
         // Сохранять ли исходный код страницы при неудачных тестах.
-        com.codeborne.selenide.Configuration.savePageSource = configuration.selenideSavePageSource();
+        Configuration.savePageSource = configProject.selenideSavePageSource();
 
         // Тайм-аут в миллисекундах для неудачного теста, если условия все еще не выполнены.
-        com.codeborne.selenide.Configuration.timeout = configuration.selenideTimeout();
+        Configuration.timeout = configProject.selenideTimeout();
+    }
+
+    private void installingBrowser(String browserName) {
+        if (browserName.contains("hrome")) {
+            WebDriverManager.chromedriver().version("2.46").setup();
+        }// по необходимости сделать для других браузеров
     }
 }
