@@ -28,7 +28,7 @@ public class Context {
         return context;
     }
 
-    protected void initializeSelenide() {
+    private void initializeSelenide() {
 
         // URL
         Configuration.baseUrl = configProject.siteUrl();
