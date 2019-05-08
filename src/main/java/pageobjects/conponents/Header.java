@@ -16,7 +16,7 @@ public class Header extends Component {
 
     @Override
     public void validateComponentIsAvailable() {
-        $(By.className("header-area")).should(exist);
+        $(".header-area").should(exist);
     }
 
     public SelenideElement iconCartInHeader = $(By.xpath(".//div[@class='header-area']//child::div[@id='js-mini-basket']"));

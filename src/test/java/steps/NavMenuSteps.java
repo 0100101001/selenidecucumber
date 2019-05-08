@@ -35,6 +35,7 @@ public class NavMenuSteps {
 
     @Если("в разделе '(.+)' выбрать категорию '(.+)'")
     public void goToTheCategorySection(String nameSection, String category) {
+
         hoverOverSection(nameSection);
         checkOpenSectionMenu(nameSection);
         clickCategory(category);

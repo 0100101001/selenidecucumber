@@ -1,15 +1,17 @@
 package steps;
 
 import com.codeborne.selenide.Condition;
-import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Если;
-import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
+import org.openqa.selenium.NoSuchElementException;
 import pageobjects.pages.ItemCardPage;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.byValue;
+import static com.codeborne.selenide.Selenide.$$;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ItemCardPageSteps {
@@ -21,7 +23,7 @@ public class ItemCardPageSteps {
         new ItemCardPage();
     }
 
-    @Дано("^нажать на кнопку добавления товара в корзину$")
+    @Если("добавить товар в корзину")
     public void addToCartProduct() {
         ItemCardPage itemCardPage = new ItemCardPage();
 
@@ -32,7 +34,7 @@ public class ItemCardPageSteps {
         assertThat(addedProductList).as("Товар не добавлен! \n" + addedProductList).contains(titleItem);
     }
 
-    @Когда("^появится всплывающий блок$")
+    @Тогда("^появится всплывающий блок$")
     public void checkPopupBlock() {
         ItemCardPage itemCardPage = new ItemCardPage();
         itemCardPage.popupBlock.shouldBe(Condition.visible);
@@ -44,10 +46,13 @@ public class ItemCardPageSteps {
         itemCardPage.btnClosePopup.click();
     }
 
-    @Если("добавить товар в корзину")
-    public void addItemToCart() {
-        addToCartProduct();
-        checkPopupBlock();
-        closePopupBlock();
+    // TODO пример
+    @Если("^нажать на кнопку (.+)$")
+    public void clickButton(String nameButton) {
+        try {
+            $$(byText(nameButton)).first().shouldBe(Condition.visible).click();
+        } catch (NoSuchElementException e) {
+            $$(byValue(nameButton)).first().shouldBe(Condition.visible).click();
+        }
     }
 }

@@ -1,6 +1,5 @@
 package pageobjects.pages;
 
-import org.openqa.selenium.By;
 import pageobjects.PageObject;
 
 import static com.codeborne.selenide.Condition.exist;
@@ -15,7 +14,7 @@ public class HomePage extends PageObject {
 
     @Override
     public void validateIsExpectedPage() {
-        $(By.className("home")).should(exist);
+        $(".home").should(exist);
     }
 }
 

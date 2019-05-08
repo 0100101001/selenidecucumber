@@ -19,7 +19,7 @@ public class NavMenu extends Component {
 
     @Override
     public void validateComponentIsAvailable() {
-        $(By.className("header-nav")).should(exist);
+        $(".header-nav").should(exist);
     }
 
     public ElementsCollection sectionsList = $$(By.xpath(

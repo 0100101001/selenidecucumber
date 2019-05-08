@@ -17,7 +17,7 @@ public class Plp extends PageObject {
 
     @Override
     public void validateIsExpectedPage() {
-        $(By.className("o-plp-container_sub-header")).should(exist);
+        $(".o-plp-container_sub-header").should(exist);
         $(By.xpath("//div[contains(@class, 'o-plp-container__main-block')]")).should(exist);
     }
 
