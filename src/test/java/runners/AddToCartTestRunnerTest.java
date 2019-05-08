@@ -13,7 +13,8 @@ import static steps.ItemCardPageSteps.addedProductList;
 
 @CucumberOptions(features = "src/test/resources/features/",
         glue = {"steps"},
-        tags = "@smoke")
+        tags = "@smoke",
+        plugin = "pretty")
 public class AddToCartTestRunnerTest extends AbstractTestNGCucumberTests {
 
     @BeforeClass

@@ -21,9 +21,9 @@ public class NavMenuSteps {
     }
 
     @То("^раскрыто меню '(.+)'$")
-    public void checkOpenSectionMenu(String nameSection) {
+    public void checkOpenSectionMenu(String nameSection) throws InterruptedException {
         NavMenu navMenu = new NavMenu();
-        assertThat(navMenu.sectionsList.findBy(text(nameSection)).shouldBe(visible)
+        assertThat(navMenu.categoriesList.findBy(text(nameSection)).shouldBe(visible)
                 .getAttribute("class")).contains("active");
     }
 
@@ -34,7 +34,7 @@ public class NavMenuSteps {
     }
 
     @Если("в разделе '(.+)' выбрать категорию '(.+)'")
-    public void goToTheCategorySection(String nameSection, String category) {
+    public void goToTheCategorySection(String nameSection, String category) throws InterruptedException {
 
         hoverOverSection(nameSection);
         checkOpenSectionMenu(nameSection);

@@ -25,6 +25,9 @@ public class NavMenu extends Component {
     public ElementsCollection sectionsList = $$(By.xpath(
             ".//nav[@class='header-nav']//child::li[contains(@class, 'header-nav-item has-dropdown')]"));
 
+    public ElementsCollection categoriesList = $$(By.xpath(
+            ".//nav[@class='header-nav']//child::li[contains(@class, 'header-nav-item has-dropdown')]"));
+
     public SelenideElement getCategory(String nameCategories) {
         String selector = String.format(".//li[contains(@class,'header-nav-drop-down-list-item') " +
                 "and contains(string(),'%s')]", nameCategories);
