@@ -45,14 +45,4 @@ public class ItemCardPageSteps {
         ItemCardPage itemCardPage = new ItemCardPage();
         itemCardPage.btnClosePopup.click();
     }
-
-    // TODO пример
-    @Если("^нажать на кнопку (.+)$")
-    public void clickButton(String nameButton) {
-        try {
-            $$(byText(nameButton)).first().shouldBe(Condition.visible).click();
-        } catch (NoSuchElementException e) {
-            $$(byValue(nameButton)).first().shouldBe(Condition.visible).click();
-        }
-    }
 }

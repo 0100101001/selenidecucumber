@@ -2,21 +2,13 @@ package pageobjects.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import pageobjects.PageObject;
 
-import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.$;
 import static util.ActionsOnElements.removeEvilBanner;
 
-public class ItemCardPage extends PageObject {
+public class ItemCardPage {
     public ItemCardPage() {
-        validateIsExpectedPage();
         removeEvilBanner();
-    }
-
-    @Override
-    public void validateIsExpectedPage() {
-        $(By.xpath(".//div[contains(@class,'sel-pdp-container')]")).should(exist);
     }
 
     public SelenideElement addToCartButton = $(By.xpath(".//div[@class='o-pay ']//input[@data-init='addToBasket']"));

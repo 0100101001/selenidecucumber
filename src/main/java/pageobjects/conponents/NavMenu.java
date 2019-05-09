@@ -3,23 +3,14 @@ package pageobjects.conponents;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import pageobjects.Component;
 
 import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static util.ActionsOnElements.removeEvilBanner;
 
-public class NavMenu extends Component {
+public class NavMenu {
     public NavMenu() {
-        validateComponentIsAvailable();
         removeEvilBanner();
-    }
-
-    @Override
-    public void validateComponentIsAvailable() {
-        $(".header-nav").should(exist);
     }
 
     public ElementsCollection sectionsList = $$(By.xpath(

@@ -4,6 +4,7 @@ import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.И;
 import cucumber.api.java.ru.То;
+import pageobjects.PO;
 import pageobjects.conponents.NavMenu;
 
 import static com.codeborne.selenide.Condition.text;
@@ -39,5 +40,9 @@ public class NavMenuSteps {
         hoverOverSection(nameSection);
         checkOpenSectionMenu(nameSection);
         clickCategory(category);
+    }
+
+    private PO onSite() {
+        return new PO();
     }
 }
