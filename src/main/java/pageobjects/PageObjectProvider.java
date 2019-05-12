@@ -8,10 +8,10 @@ import pageobjects.pages.ItemCardPage;
 import pageobjects.pages.Plp;
 
 public class PageObjectProvider {
-    Header header = new Header();
-    NavMenu navMenu = new NavMenu();
-    CartPage cartPage = new CartPage();
-    HomePage homePage = new HomePage();
-    ItemCardPage itemCardPage = new ItemCardPage();
-    Plp plp = new Plp();
+    public static Header header = new Header();
+    public static NavMenu navMenu = new NavMenu();
+    public static CartPage cartPage = new CartPage();
+    public static HomePage homePage = new HomePage();
+    public static ItemCardPage itemCardPage = new ItemCardPage();
+    public static Plp plp = new Plp();
 }

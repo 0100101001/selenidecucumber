@@ -1,9 +1,11 @@
 package steps;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.Тогда;
 import org.openqa.selenium.NoSuchElementException;
+import pageobjects.PageObjectProvider;
 import pageobjects.pages.ItemCardPage;
 
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byValue;
 import static com.codeborne.selenide.Selenide.$$;
 import static org.assertj.core.api.Assertions.assertThat;
+import static pageobjects.PageObjectProvider.itemCardPage;
 
 public class ItemCardPageSteps {
 
@@ -25,7 +28,7 @@ public class ItemCardPageSteps {
 
     @Если("добавить товар в корзину")
     public void addToCartProduct() {
-        ItemCardPage itemCardPage = new ItemCardPage();
+//        ItemCardPage itemCardPage = new ItemCardPage();
 
         itemCardPage.addToCartButton.click();
         String titleItem = itemCardPage.productTitle.getText().replaceAll("\n", "").trim();

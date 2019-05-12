@@ -1,10 +1,13 @@
 package pageobjects.pages;
 
-import static util.ActionsOnElements.removeEvilBanner;
+import org.openqa.selenium.By;
+
+import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Selenide.$;
 
 public class HomePage {
-    public HomePage() {
-        removeEvilBanner();
+    public void validateIsExpectedPage() {
+        $(By.className("home")).should(exist);
     }
 }
 

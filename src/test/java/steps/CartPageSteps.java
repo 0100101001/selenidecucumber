@@ -7,18 +7,18 @@ import pageobjects.pages.CartPage;
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.text;
 import static org.assertj.core.api.Assertions.assertThat;
+import static pageobjects.PageObjectProvider.cartPage;
 import static steps.ItemCardPageSteps.addedProductList;
 
 public class CartPageSteps {
 
     @Тогда("^открыта корзина$")
     public void checkOpenCartPage() {
-        new CartPage();
+        cartPage.validateIsExpectedPage();
     }
 
     @Ктомуже("^в корзине отображаются добавленные товары$")
     public void addedCheckingOfGoods() {
-        CartPage cartPage = new CartPage();
         assertThat(addedProductList).as("Список добавленных товаров пуст! \n" + addedProductList).isNotNull();
 
         for (String product : addedProductList) {
