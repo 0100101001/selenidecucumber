@@ -1,19 +1,14 @@
 package steps;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.Тогда;
-import org.openqa.selenium.NoSuchElementException;
 import pageobjects.PageObjectProvider;
 import pageobjects.pages.ItemCardPage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.byValue;
-import static com.codeborne.selenide.Selenide.$$;
 import static org.assertj.core.api.Assertions.assertThat;
 import static pageobjects.PageObjectProvider.itemCardPage;
 
@@ -47,5 +42,21 @@ public class ItemCardPageSteps {
     public void closePopupBlock() {
         ItemCardPage itemCardPage = new ItemCardPage();
         itemCardPage.btnClosePopup.click();
+    }
+
+//    @Тогда("^нажать на (.+)$")
+//    public void clickElement(String elementText) throws InterruptedException {
+//        pageObjectProvider().elementProvider(elementText, null);
+//        Thread.sleep(10000);
+//    }
+
+    @Тогда("^нажать на (.+) в (.+)$")
+    public void clickElement(String elementText, String elementPosition) throws InterruptedException {
+        pageObjectProvider().elementProvider(elementText, elementPosition).click();
+        Thread.sleep(10000);
+    }
+
+    public PageObjectProvider pageObjectProvider() {
+        return new PageObjectProvider();
     }
 }
