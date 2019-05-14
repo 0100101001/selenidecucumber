@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeClass;
 import util.TestListener;
 
 import static com.codeborne.selenide.WebDriverRunner.addListener;
-import static steps.ItemCardPageSteps.addedProductList;
+import static util.TestHelper.addedProductList;
 
 
 @CucumberOptions(features = "src/test/resources/features/",

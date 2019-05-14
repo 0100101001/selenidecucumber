@@ -12,9 +12,7 @@ public class PopupBlock {
         HashMap<String, String> listElements = new HashMap<>();
 
         listElements.put("Продолжить покупки", ".//a[@data-sel='page_name-a-close_popup']");
-        listElements.put("Перейти в корзину", ".//div[@class='c-popup__block']" +
-                "//child::input[@value='Перейти в корзину'] | " +
-                ".//div[@class='c-popup__block']//child::a[text()='Перейти в корзину']");
+        listElements.put("Перейти в корзину", ".//a[@data-sel='page_name-a-cart_redirect']");
 
         return $x(listElements.get(elementText));
     }

@@ -2,13 +2,12 @@ package steps;
 
 import cucumber.api.java.ru.Ктомуже;
 import cucumber.api.java.ru.Тогда;
-import pageobjects.pages.CartPage;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.text;
 import static org.assertj.core.api.Assertions.assertThat;
 import static pageobjects.PageObjectProvider.cartPage;
-import static steps.ItemCardPageSteps.addedProductList;
+import static util.TestHelper.addedProductList;
 
 public class CartPageSteps {
 

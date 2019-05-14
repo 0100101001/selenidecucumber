@@ -1,7 +1,6 @@
 package pageobjects;
 
 import com.codeborne.selenide.SelenideElement;
-import pageobjects.conponents.Header;
 import pageobjects.conponents.NavMenu;
 import pageobjects.conponents.PopupBlock;
 import pageobjects.pages.CartPage;
@@ -10,7 +9,6 @@ import pageobjects.pages.ItemCardPage;
 import pageobjects.pages.Plp;
 
 public class PageObjectProvider {
-    public static Header header = new Header();
     public static NavMenu navMenu = new NavMenu();
     public static CartPage cartPage = new CartPage();
     public static HomePage homePage = new HomePage();
@@ -19,7 +17,7 @@ public class PageObjectProvider {
     public static PopupBlock popupBlock = new PopupBlock();
 
 
-    public SelenideElement elementProvider(String elementText, String elementPosition) {
+    public static SelenideElement elementProvider(String elementText, String elementPosition) {
         SelenideElement element = null;
 
 //        // получим имя вызывающего класса
@@ -39,14 +37,10 @@ public class PageObjectProvider {
             case "всплывающем блоке":
                 element = popupBlock.mapElements(elementText);
                 break;
-            case "выпадающем меню корзины":
-                element = header.mapElements(elementText);
-                break;
             case "карточке товара":
                 element = itemCardPage.mapElements(elementText);
                 break;
         }
-
         return element;
     }
 }

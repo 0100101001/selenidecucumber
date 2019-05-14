@@ -18,18 +18,13 @@ public class ItemCardPage {
 
     public SelenideElement popupBlock = $x(".//div[@class='c-popup__close']//parent::div[@class='c-popup__block']");
 
-    public SelenideElement btnClosePopup = $x("//div[@class='c-popup__close']");
-
     public SelenideElement productTitle = $x(".//div[@class='o-pdp-topic__title']//h1");
 
 
     public SelenideElement mapElements(String elementText) {
         HashMap<String, String> listElements = new HashMap<>();
 
-        listElements.put("Добавить в корзину", ".//div[@class='o-pay ']//input[@data-init='addToBasket' " +
-                "and @value='Добавить в корзину']");
-        listElements.put("Перейти в корзину", ".//div[@class='o-pay ']//input[@data-init='addToBasket' " +
-                "and @value='Перейти в корзину']");
+        listElements.put("Добавить в корзину", ".//div[@class='o-pay ']//child::input[@data-init='addToBasket']");
 
         return $x(listElements.get(elementText));
     }
