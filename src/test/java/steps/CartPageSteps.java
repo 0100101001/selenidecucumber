@@ -1,6 +1,6 @@
 package steps;
 
-import cucumber.api.java.ru.И;
+import cucumber.api.java.en.Then;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.text;
@@ -10,7 +10,7 @@ import static util.TestHelper.addedProductList;
 
 public class CartPageSteps {
 
-    @И("^в корзине отображаются добавленные товары$")
+    @Then("^в корзине отображаются добавленные товары$")
     public void addedCheckingOfGoods() {
         assertThat(addedProductList).as("Список добавленных товаров пуст! \n" + addedProductList).isNotNull();
 

@@ -1,13 +1,13 @@
 package steps;
 
 import com.codeborne.selenide.Condition;
-import cucumber.api.java.ru.Если;
+import cucumber.api.java.en.When;
 
 import static pageobjects.PageObjectProvider.elementProvider;
 import static util.TestHelper.rememberAddedItemToCart;
 
 public class ActionsWithElementsSteps {
-    @Если("^в (.+) нажать на '(.+)'$")
+    @When("^в (.+) нажать на '(.+)'$")
     public void clickElement(String elementText, String elementPosition) {
         if (elementText.equals("Добавить в корзину")) rememberAddedItemToCart();
         elementProvider(elementText, elementPosition).shouldBe(Condition.visible).click();
