@@ -8,6 +8,9 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class PopupBlock {
 
+    public SelenideElement popupBlock = $x(".//div[@class='c-popup__close']" +
+            "//parent::div[@class='c-popup__block']");
+
     public SelenideElement mapElements(String elementText) {
         HashMap<String, String> listElements = new HashMap<>();
 

@@ -14,7 +14,6 @@ public class ItemCardPage {
         $(By.xpath(".//div[contains(@class,'sel-pdp-container')]")).should(exist);
     }
 
-    public SelenideElement popupBlock = $x(".//div[@class='c-popup__close']//parent::div[@class='c-popup__block']");
     public SelenideElement productTitle = $x(".//div[@class='o-pdp-topic__title']//h1");
 
     public SelenideElement mapElements(String elementText) {

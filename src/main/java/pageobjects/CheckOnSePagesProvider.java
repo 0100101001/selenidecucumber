@@ -21,7 +21,7 @@ public class CheckOnSePagesProvider {
     public static void checkTheAppearanceOfTheElement(String elementName) {
         switch (elementName) {
             case "Всплывающий блок":
-                itemCardPage.popupBlock.shouldBe(Condition.visible);
+                popupBlock.popupBlock.shouldBe(Condition.visible);
                 break;
         }
     }
