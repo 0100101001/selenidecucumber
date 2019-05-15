@@ -7,7 +7,7 @@ import static pageobjects.PageObjectProvider.elementProvider;
 import static util.TestHelper.rememberAddedItemToCart;
 
 public class ActionsWithElementsSteps {
-    @Если("^нажать на '(.+)' в (.+)$")
+    @Если("^в (.+) нажать на '(.+)'$")
     public void clickElement(String elementText, String elementPosition) {
         if (elementText.equals("Добавить в корзину")) rememberAddedItemToCart();
         elementProvider(elementText, elementPosition).shouldBe(Condition.visible).click();
