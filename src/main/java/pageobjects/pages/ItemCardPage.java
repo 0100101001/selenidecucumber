@@ -14,18 +14,12 @@ public class ItemCardPage {
         $(By.xpath(".//div[contains(@class,'sel-pdp-container')]")).should(exist);
     }
 
-    public SelenideElement addToCartButton = $(By.xpath(".//div[@class='o-pay ']//input[@data-init='addToBasket']"));
-
     public SelenideElement popupBlock = $x(".//div[@class='c-popup__close']//parent::div[@class='c-popup__block']");
-
     public SelenideElement productTitle = $x(".//div[@class='o-pdp-topic__title']//h1");
-
 
     public SelenideElement mapElements(String elementText) {
         HashMap<String, String> listElements = new HashMap<>();
-
         listElements.put("Добавить в корзину", ".//div[@class='o-pay ']//child::input[@data-init='addToBasket']");
-
         return $x(listElements.get(elementText));
     }
 }

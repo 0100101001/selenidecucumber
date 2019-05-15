@@ -1,13 +1,19 @@
 package steps;
 
-import cucumber.api.java.ru.Если;
+import cucumber.api.java.ru.Тогда;
 
+import static pageobjects.CheckOnSePagesProvider.checkTheAppearanceOfTheElement;
 import static pageobjects.CheckOnSePagesProvider.validateIsExpectedPage;
 
 public class CheckSteps {
 
-    @Если("^открыта страница '(.+)'$")
+    @Тогда("^открыта страница '(.+)'$")
     public void checkExpectedPage(String pageName) {
         validateIsExpectedPage(pageName);
+    }
+
+    @Тогда("^появится '(.+)'$")
+    public void checkApperanceElement(String elementName) {
+        checkTheAppearanceOfTheElement(elementName);
     }
 }

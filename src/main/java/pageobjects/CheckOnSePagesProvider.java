@@ -1,5 +1,7 @@
 package pageobjects;
 
+import com.codeborne.selenide.Condition;
+
 import static pageobjects.PageObjectProvider.*;
 
 public class CheckOnSePagesProvider {
@@ -13,6 +15,14 @@ public class CheckOnSePagesProvider {
             case "Главная" : homePage.validateIsExpectedPage();
             break;
             case "Страница списка товаров" : plp.validateIsExpectedPage();
+        }
+    }
+
+    public static void checkTheAppearanceOfTheElement(String elementName) {
+        switch (elementName) {
+            case "Всплывающий блок":
+                itemCardPage.popupBlock.shouldBe(Condition.visible);
+                break;
         }
     }
 }

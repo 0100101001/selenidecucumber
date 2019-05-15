@@ -10,4 +10,3 @@ public class HomePage {
         $(By.className("home")).should(exist);
     }
 }
-

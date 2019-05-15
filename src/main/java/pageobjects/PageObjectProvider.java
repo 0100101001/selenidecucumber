@@ -20,19 +20,6 @@ public class PageObjectProvider {
     public static SelenideElement elementProvider(String elementText, String elementPosition) {
         SelenideElement element = null;
 
-//        // получим имя вызывающего класса
-//        Throwable thr = new Throwable();
-//        StackTraceElement[] ste = thr.getStackTrace();
-//        String callerClassName = null;
-//        int i = 1;
-//        while (i < ste.length && ste[i].getMethodName().startsWith("access$")) {
-//            ++i;
-//        }
-//        if (i < ste.length) {
-//            callerClassName = ste[i].getClassName();
-//        }
-//        System.out.println(callerClassName);
-
         switch (elementPosition) {
             case "всплывающем блоке":
                 element = popupBlock.mapElements(elementText);

@@ -8,9 +8,7 @@ import org.aeonbits.owner.ConfigFactory;
 public class Context {
 
     private static Context context = null;
-
     private ConfigProject configProject = null;
-
     private String sessionIdentifier = null;
 
     protected Context() {
@@ -54,6 +52,7 @@ public class Context {
         // Расположение каталога, в котором будут сохранены скриншоты/отчеты из Selenide
         Configuration.reportsFolder = configProject.selenideReportsFolder() + "/" + sessionIdentifier;
 
+        // Стратегия загрузки страницы
         Configuration.pageLoadStrategy = configProject.selenidePageLoadStrategy();
 
         // Сохранять ли исходный код страницы при неудачных тестах.
